@@ -30,6 +30,6 @@ npm run test
 ```
 
 ## Example
-![image]()
+![image]('https://github.com/glorypv/api_tokenizador/blob/main/TEST1.PNG')
 
-![image]()
+![image]('https://github.com/glorypv/api_tokenizador/blob/main/TEST2.PNG')
