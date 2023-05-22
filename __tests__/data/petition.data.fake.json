@@ -1,0 +1,55 @@
+{
+    "dataOk":{
+        "card": {
+            "card_number": 24992739897155,
+            "cvv": 9999,
+            "expiration_month": "12",
+            "expiration_year": "2023",
+            "email": "gloria@gmail.com"
+        },
+        "header": "pk_test_1a2b3c4d5e6f7g85",
+        "token":"pQxPLwG88y76JeoY"
+    },
+    "dataError": {
+        "header_sin":null,
+        "header_validate":"pk_tes_1a2b3c4d5e6f7.5",
+        "token":"pQxPLwG88y76JeoY",
+        "card_alg": {
+            "card_number": 24992739897156,
+            "cvv": 9999,
+            "expiration_month": "12",
+            "expiration_year": "2023",
+            "email": "gloria@gmail.com"
+        },
+        "card_len": {
+            "card_number": 24992739897156,
+            "cvv": 9999,
+            "expiration_month": "12",
+            "expiration_year": "2023",
+            "email": "gloria@gmail.com"
+        },
+        "cvv_len": {
+            "card_number": 24992739897155,
+            "cvv": 10,
+            "expiration_month": "12",
+            "expiration_year": "2023",
+            "email": "gloria@gmail.com"
+        },
+        "email_bad": {
+            "card_number": 24992739897155,
+            "cvv": 1234,
+            "expiration_month": "12",
+            "expiration_year": "2023",
+            "email": "gloriagmailcom"
+        },
+        "email_dom": {
+            "card_number": 24992739897155,
+            "cvv": 1234,
+            "expiration_month": "12",
+            "expiration_year": "2023",
+            "email": "gloria@sindominio.com"
+        }
+
+
+    }
+}

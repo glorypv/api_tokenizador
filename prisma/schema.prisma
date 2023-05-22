@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// prisma/schema.prisma
+
+model Petition {
+  id                Int @id @default(autoincrement())
+  card_number       BigInt  
+  cvv               Int
+  expiration_month  String
+  expiration_year   String
+  email             String
+  token             String? @unique
+  signedToken       String? @unique
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+}
