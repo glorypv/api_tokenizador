@@ -30,6 +30,5 @@ npm run test
 ```
 
 ## Example
-See 
-![image](https://user-images.githubusercontent.com/17199377/240066996-3f789bc9-f987-4f07-9674-19fd6d5e5cb2.PNG)
+See ![image](https://user-images.githubusercontent.com/17199377/240066996-3f789bc9-f987-4f07-9674-19fd6d5e5cb2.PNG)
 ![image](https://user-images.githubusercontent.com/17199377/240066738-5431928a-1325-4a9b-ac61-a8a12cb90429.PNG)
