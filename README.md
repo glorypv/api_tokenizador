@@ -30,6 +30,6 @@ npm run test
 ```
 
 ## Example
-![image](https://user-images.githubusercontent.com/17199377/240065292-54bea3f9-d47e-43fb-9ffd-120bcb905c54.PNG240065292-54bea3f9-d47e-43fb-9ffd-120bcb905c54.PNG)
-
-![image](https://user-images.githubusercontent.com/17199377/240065308-9ae344b0-c306-40eb-810f-9d4556c19f13.PNG)
+See 
+![image](https://user-images.githubusercontent.com/17199377/240066996-3f789bc9-f987-4f07-9674-19fd6d5e5cb2.PNG)
+![image](https://user-images.githubusercontent.com/17199377/240066738-5431928a-1325-4a9b-ac61-a8a12cb90429.PNG)
