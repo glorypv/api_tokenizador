@@ -1,0 +1,18 @@
+{
+    "data_token_generate": {
+        "signedToken": "tr9gbhzEB8WBAF1w",
+        "token": "tr9gbhzEB8WBAF1w"
+    },
+    "data_token_verify": {
+        "status": true
+    },
+    "data_create": {
+        "token": "tr9gbhzEB8WBAF1w"
+    },
+    "data_search_token": {
+        "card_number": 24992739897155,
+        "expiration_month": "12",
+        "expiration_year": "2023",
+        "email": "gloria@gmail.com"
+    }
+}

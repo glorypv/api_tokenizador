@@ -4,45 +4,62 @@ import { PetitionsService } from '../src/petitions/petitions.service';
 import { TokenService } from '../src/petitions/util/token.service';
 import { PrismaService } from '../src/prisma/prisma.service'
 import { JwtModule } from '@nestjs/jwt';
-import mockJwtService from './util/token.service.mock';
-import * as data from './data/petition.data.fake.json';
-import { ValidationDataService } from '../src/petitions/util/validation.data.service';
+import { PrismaClient } from '@prisma/client';
 
+import { ValidationDataService } from '../src/petitions/util/validation.data.service';
+import mockJwtService from './util/token.service.spect';
+import * as data from './data/petition.data.fake.json';
+import * as dataMock from './data/petition.data.mock.fake.json';
 describe('PetitionsController', () => {
   let controller: PetitionsController;
+  let service: PetitionsService;
+  let tokenService: TokenService;
+  let prisma: PrismaClient;
 
   beforeEach(async () => {
+    const tokenServiceSpy = {
+      generateToken: jest.fn().mockReturnValue(dataMock.data_token_generate),
+      verifyToken: jest.fn().mockReturnValue(dataMock.data_token_verify),
+    };
+    const petitionServiceSpy = {
+      createData: jest.fn().mockResolvedValue({}),
+      create: jest.fn().mockReturnValue(dataMock.data_create),
+      searchToken: jest.fn().mockReturnValue(dataMock.data_search_token),
+    };
+
+    const prismaServiceSpy = {
+      create: jest.fn().mockResolvedValue({}),
+      findUnique: jest.fn().mockResolvedValue({}),
+    };
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PetitionsController],
-      providers: [PetitionsService, PrismaService,
-        TokenService,
-        {
-          provide: JwtModule,
-          useValue: mockJwtService,
-        },
+      providers: [
+        { provide: TokenService, useValue: tokenServiceSpy },
+        { provide: PetitionsService, useValue: petitionServiceSpy },
+        { provide: PrismaClient, useValue: prismaServiceSpy },
       ],
       imports: [
-        JwtModule.register({
-          secret: process.env.TOKEN,
-          signOptions: { expiresIn: '15m' }, // e.g. 30s, 7d, 24h
-        }),
       ]
-    }).compile();
+    }
 
-
+    ).compile();
     controller = module.get<PetitionsController>(PetitionsController);
   });
-
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
 
-  test('Generar y verificar token ', async () => {
-
+  test('Generar  token ', async () => {
     const response = await controller.create(data.dataOk.card, data.dataOk.header);
-    const tokenVerify = await controller.searchToken(response.token);
+    expect.assertions(1);
+    expect(response).toMatchObject({
+      token: expect.any(String)
+    });
+  });
 
+  test('Verificar token ', async () => {
+    const tokenVerify = await controller.searchToken(data.dataOk.token);
     expect.assertions(1);
     expect(tokenVerify).toMatchObject({
       card_number: expect.any(Number),
@@ -50,7 +67,6 @@ describe('PetitionsController', () => {
       expiration_year: expect.any(String),
       email: expect.any(String)
     });
-
   });
 
   test('Validar Header  ', async () => {
